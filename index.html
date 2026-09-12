@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maultäschle &mdash; handgemacht bestellen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #EFE6D6;
+    --dough: #F7F1E6;
+    --crust: #3A2A1C;
+    --herb: #4C5A38;
+    --herb-dark: #37432A;
+    --broth: #C08A2E;
+    --line: rgba(58, 42, 28, 0.15);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--dough);
+    color: var(--crust);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    margin: 0 0 0.5em;
+    line-height: 1.15;
+  }
+
+  a { color: inherit; }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: var(--dough);
+    border-bottom: 1px solid var(--line);
+    z-index: 10;
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+  }
+
+  .brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+  }
+
+  .btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--herb);
+    color: var(--dough);
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.15s ease;
+  }
+
+  .btn-whatsapp:hover { background: var(--herb-dark); }
+
+  /* Hero */
+  .hero {
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 6vw, 58px);
+    max-width: 14ch;
+  }
+
+  .hero p {
+    max-width: 46ch;
+    font-size: 18px;
+    color: rgba(58, 42, 28, 0.75);
+    margin: 0 0 32px;
+  }
+
+  /* Section headings */
+  .section {
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-label {
+    font-size: 14px;
+    color: var(--herb);
+    margin: 0 0 8px;
+  }
+
+  .section h2 {
+    font-size: 32px;
+    margin-bottom: 28px;
+  }
+
+  /* Über mich */
+  .about {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+
+  .photo-placeholder {
+    aspect-ratio: 1;
+    background: var(--cream);
+    border: 1px dashed rgba(58, 42, 28, 0.35);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(58, 42, 28, 0.5);
+    font-size: 13px;
+    text-align: center;
+    padding: 12px;
+  }
+
+  /* Produktportfolio */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .product-card {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--dough);
+  }
+
+  .product-photo {
+    aspect-ratio: 4 / 3;
+    background: var(--cream);
+    border-bottom: 1px dashed rgba(58, 42, 28, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(58, 42, 28, 0.5);
+    font-size: 13px;
+  }
+
+  .product-body { padding: 18px 20px 22px; }
+
+  .product-body h3 {
+    font-size: 19px;
+    margin-bottom: 6px;
+  }
+
+  .product-body p {
+    font-size: 14.5px;
+    color: rgba(58, 42, 28, 0.75);
+    margin: 0;
+  }
+
+  /* Bestellen */
+  .order {
+    background: var(--herb);
+    color: var(--dough);
+    border-bottom: none;
+  }
+
+  .order .section-label { color: rgba(239, 230, 214, 0.7); }
+
+  .order-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 32px 0 40px;
+  }
+
+  .order-steps div {
+    font-size: 14.5px;
+    color: rgba(239, 230, 214, 0.85);
+  }
+
+  .order-steps strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 17px;
+    color: var(--dough);
+    margin-bottom: 4px;
+  }
+
+  .btn-whatsapp-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--dough);
+    color: var(--herb-dark);
+    text-decoration: none;
+    padding: 16px 28px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .btn-whatsapp-large:hover { background: var(--cream); }
+
+  /* Footer */
+  footer {
+    padding: 40px 0;
+    font-size: 13px;
+    color: rgba(58, 42, 28, 0.6);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer a { text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .about { grid-template-columns: 1fr; }
+    .photo-placeholder { max-width: 160px; }
+    .products { grid-template-columns: 1fr; }
+    .order-steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <div class="brand">Maultäschle</div>
+    <a class="btn-whatsapp" href="https://wa.me/491234567890?text=Hallo%2C%20ich%20m%C3%B6chte%20Maultaschen%20bestellen" target="_blank" rel="noopener">
+      Bestellen per WhatsApp
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Handgemachte Maultaschen, so wie bei der Oma.</h1>
+    <p>Frisch zubereitet, in kleinen Mengen, aus der Region. Bestellung ganz unkompliziert per WhatsApp.</p>
+    <a class="btn-whatsapp" href="https://wa.me/491234567890?text=Hallo%2C%20ich%20m%C3%B6chte%20Maultaschen%20bestellen" target="_blank" rel="noopener">
+      Jetzt bestellen
+    </a>
+  </div>
+</section>
+
+<section class="section" id="ueber-mich">
+  <div class="wrap">
+    <p class="section-label">Über mich</p>
+    <div class="about">
+      <div class="photo-placeholder">Foto von dir hier einfügen</div>
+      <div>
+        <h2>Warum ich Maultaschen mache</h2>
+        <p>Hier ein paar Sätze zu dir: seit wann du Maultaschen machst, was dein Rezept besonders macht (Familienrezept, regionale Zutaten, Handarbeit) und was Kund:innen von dir erwarten können.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="sortiment">
+  <div class="wrap">
+    <p class="section-label">Sortiment</p>
+    <h2>Was es gibt</h2>
+    <div class="products">
+      <div class="product-card">
+        <div class="product-photo">Foto einfügen</div>
+        <div class="product-body">
+          <h3>Klassische Maultaschen</h3>
+          <p>Mit Hackfleisch, Spinat und Kräutern &mdash; das Original.</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-photo">Foto einfügen</div>
+        <div class="product-body">
+          <h3>Vegetarische Maultaschen</h3>
+          <p>Herzhafte Füllung ganz ohne Fleisch.</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-photo">Foto einfügen</div>
+        <div class="product-body">
+          <h3>Geräuchert &amp; geschmälzt</h3>
+          <p>Klassisch angebraten mit Zwiebeln, zum sofort Genießen.</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-photo">Foto einfügen</div>
+        <div class="product-body">
+          <h3>Wochenangebot</h3>
+          <p>Wechselnde Sonderedition &mdash; frag einfach nach, was aktuell da ist.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section order" id="bestellen">
+  <div class="wrap">
+    <p class="section-label">Bestellen</p>
+    <h2>So einfach geht's</h2>
+    <div class="order-steps">
+      <div><strong>1. Schreiben</strong>Schick mir über WhatsApp, was und wie viel du möchtest.</div>
+      <div><strong>2. Absprechen</strong>Wir klären Abholung oder Lieferung und den Termin.</div>
+      <div><strong>3. Genießen</strong>Frisch zubereitet, direkt zu dir.</div>
+    </div>
+    <a class="btn-whatsapp-large" href="https://wa.me/491234567890?text=Hallo%2C%20ich%20m%C3%B6chte%20Maultaschen%20bestellen" target="_blank" rel="noopener">
+      Zu WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; width: 100%;">
+    <span>&copy; 2026 Maultäschle</span>
+    <span>
+      <a href="#">Impressum</a> &middot; <a href="#">Datenschutz</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
